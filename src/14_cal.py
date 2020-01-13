@@ -22,3 +22,17 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+today = datetime.today()
+
+def new_cal(a = today.month, b = today.year):
+  return calendar.TextCalendar(6).formatmonth(b, a, 7)
+
+if len(sys.argv) == 4:
+  cal = new_cal(int(sys.argv[2]), int(sys.argv[3]))
+elif len(sys.argv) == 3:
+  cal = new_cal(sys.argv[2])
+elif len(sys.argv) < 3:
+  new_cal = "supply 14_val.py, calendar.py, a month, and a year"
+
+print(new_cal)
